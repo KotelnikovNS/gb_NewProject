@@ -10,7 +10,7 @@ import org.openqa.selenium.interactions.Actions;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-    public class sliderGhettoSportTest extends BasicTest {
+    public class SliderGhettoSportTest extends BasicTest {
 
         @SneakyThrows
         @Test

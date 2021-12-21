@@ -1,5 +1,6 @@
 package Lesson_6.Pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,8 +19,14 @@ public class SelectCity extends BasicView {
         super(webDriver);
     }
 
-    public StartPage city() {
+    @Step("Нажать кнопку Нет, выбрать другой город, выбрать 'Санкт-Петербург'")
+    public SelectCity anotherCity() {
         anotherCityButton.click();
+        return this;
+    }
+
+    @Step ("Проверить корректоность отображения количества товара в корзине")
+    public StartPage city() {
         citySPb.click();
         return new StartPage(webDriver);
 

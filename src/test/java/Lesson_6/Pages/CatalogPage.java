@@ -1,5 +1,6 @@
 package Lesson_6.Pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -27,18 +28,20 @@ public class CatalogPage extends BasicView {
         super(webDriver);
     }
 
+    @Step ("Указать границы цены {priceFromRub} и {priceToRub}")
     public CatalogPage filters(String priceFromRub, String priceToRub) {
         priceFrom.sendKeys(priceFromRub);
         priceTo.sendKeys((Keys.CONTROL + "a"));
         priceTo.sendKeys(priceToRub);
         return this;
     }
-
+    @Step ("Нажать кнопку Показать")
     public CatalogPage confirmFilters() {
         confirmButton.click();
         return this;
     }
 
+    @Step ("Проверить првильность отображения фильтра цены {priceFromRub} и {priceToRub}")
     public CatalogPage checkFilters(String priceFromRub, String priceToRub) {
         assertThat(priceFrom.getAttribute("value"))
                 .isEqualTo(priceFromRub);
@@ -47,16 +50,14 @@ public class CatalogPage extends BasicView {
         return this;
     }
 
+    @Step ("Выбрать продукт номер 9")
     public ProductPage selectProduct() {
-//        product.click();
-
         List<WebElement> products = webDriver.findElements(By.xpath("//a[contains(@class, 'top-item top-item--catalog')]"));
         new Actions(webDriver).moveToElement(products.get(9))
                 .click()
                 .build()
                 .perform();
 
-//        WebElement selectedProduct = products.get(9);
         return new ProductPage(webDriver);
 
     }

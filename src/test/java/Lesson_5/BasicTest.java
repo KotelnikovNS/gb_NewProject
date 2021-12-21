@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 public class BasicTest {
     protected EventFiringWebDriver webDriver;
     protected WebDriverWait webDriverWait;
-//    String url = "https://crm.geekbrains.space/";
+    //String url = "https://demoqa.com/automation-practice-form";
 
     @BeforeEach
     void setUp() {

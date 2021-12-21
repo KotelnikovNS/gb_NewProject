@@ -1,5 +1,6 @@
 package Lesson_6.Pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,8 +23,14 @@ public class ProductPage extends BasicView{
     public ProductPage(WebDriver webDriver) {
         super(webDriver);
     }
-    public ProductPage addToCart () {
+
+    @Step ("Выбрать размер продукта 166")
+    public ProductPage selectSizeOfProduct () {
         size.click();
+        return this;
+    }
+    @Step ("Нажать кнопку В корзину")
+        public ProductPage addToCart () {
         addProduct.click();
         return this;
     }

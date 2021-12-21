@@ -1,5 +1,6 @@
 package Lesson_6.Pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,14 +28,26 @@ public class StartPage extends BasicView {
         super(webDriver);
     }
 
+    @Step("Проверить корректность выбранного города")
     public StartPage checkCity() {
         assertThat(cityName.getText()).isEqualTo("Санкт-Петербург");
         return this;
     }
 
-    public CatalogPage selectCategory() {
+    @Step("Нажать кнопку Весь каталог")
+    public StartPage clickAllCatalog() {
         catalogBtn.click();
+        return this;
+    }
+
+    @Step("Выбрать каталог Сноубординг и Newschool")
+    public StartPage selectCategory() {
         category.click();
+        return this;
+    }
+
+    @Step("Выбрать подкаталог Сноуборды")
+    public CatalogPage selectSubCategory() {
         subCutegory.click();
         return new CatalogPage(webDriver);
     }
