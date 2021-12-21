@@ -34,6 +34,7 @@ public class ProductPage extends BasicView{
         addProduct.click();
         return this;
     }
+    @Step ("Проверить корректоность отображения количества товара в корзине")
     public ProductPage checkCart () {
 
         assertThat(productCart.getText()).isEqualTo("1");
