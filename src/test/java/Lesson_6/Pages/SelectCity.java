@@ -19,13 +19,13 @@ public class SelectCity extends BasicView {
         super(webDriver);
     }
 
-    @Step("Нажать кнопку Нет, выбрать другой город, выбрать 'Санкт-Петербург'")
+    @Step("Нажать кнопку Нет, выбрать другой город")
     public SelectCity anotherCity() {
         anotherCityButton.click();
         return this;
     }
 
-    @Step ("Проверить корректоность отображения количества товара в корзине")
+    @Step ("Выбрать 'Санкт-Петербург'")
     public StartPage city() {
         citySPb.click();
         return new StartPage(webDriver);
